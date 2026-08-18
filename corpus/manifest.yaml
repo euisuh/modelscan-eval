@@ -1,0 +1,15 @@
+items:
+  - id: malicious_reduce
+    path: corpus/fixtures/malicious_reduce.pkl
+    kind: pickle
+    label: malicious
+    technique: reduce_drop_canary
+    evasion: null
+    expected_marker: modelscan-eval.canary
+  - id: clean
+    path: corpus/fixtures/clean.pkl
+    kind: pickle
+    label: clean
+    technique: null
+    evasion: null
+    expected_marker: null
