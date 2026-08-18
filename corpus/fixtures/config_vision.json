@@ -1,0 +1,9 @@
+{
+  "_name_or_path": "modelscan-eval/vision",
+  "architectures": [
+    "SyntheticModel"
+  ],
+  "author": "modelscan-eval",
+  "hidden_size": 16,
+  "model_type": "synthetic-transformer"
+}

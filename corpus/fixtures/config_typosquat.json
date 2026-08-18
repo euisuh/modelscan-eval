@@ -1,0 +1,9 @@
+{
+  "_name_or_path": "acne/bert-base",
+  "architectures": [
+    "SyntheticModel"
+  ],
+  "author": "Acme AI",
+  "hidden_size": 16,
+  "model_type": "synthetic-transformer"
+}

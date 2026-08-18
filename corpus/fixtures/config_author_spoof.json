@@ -1,0 +1,9 @@
+{
+  "_name_or_path": "synthetic/research-model",
+  "architectures": [
+    "SyntheticModel"
+  ],
+  "author": "Trusted Research Lab",
+  "hidden_size": 16,
+  "model_type": "synthetic-transformer"
+}

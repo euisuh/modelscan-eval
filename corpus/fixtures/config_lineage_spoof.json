@@ -1,0 +1,9 @@
+{
+  "_name_or_path": "trusted-org/secure-model",
+  "architectures": [
+    "SyntheticModel"
+  ],
+  "author": "Unknown Publisher",
+  "hidden_size": 16,
+  "model_type": "synthetic-transformer"
+}
