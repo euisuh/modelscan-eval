@@ -1,0 +1,9 @@
+{
+  "_name_or_path": "major-lab/foundation-large",
+  "architectures": [
+    "SyntheticModel"
+  ],
+  "author": "major-lab",
+  "hidden_size": 16,
+  "model_type": "synthetic-transformer"
+}
