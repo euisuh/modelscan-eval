@@ -151,9 +151,6 @@ def main() -> None:
 
     fixture_dir = ROOT / "corpus/fixtures"
     fixture_dir.mkdir(parents=True, exist_ok=True)
-    for stale in fixture_dir.iterdir():
-        if stale.is_file() and stale not in paths.values():
-            stale.unlink()
     for item_id, data in output.items():
         paths[item_id].write_bytes(data)
 
