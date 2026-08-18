@@ -1,15 +1,37 @@
 items:
-  - id: malicious_reduce
-    path: corpus/fixtures/malicious_reduce.pkl
-    kind: pickle
-    label: malicious
-    technique: reduce_drop_canary
-    evasion: null
-    expected_marker: modelscan-eval.canary
-  - id: clean
-    path: corpus/fixtures/clean.pkl
-    kind: pickle
-    label: clean
-    technique: null
-    evasion: null
-    expected_marker: null
+  - {id: malicious_reduce, path: corpus/fixtures/malicious_reduce.pkl, kind: pickle, label: malicious, technique: pickle_reduce, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_reduce_optimizer, path: corpus/fixtures/malicious_reduce_optimizer.pkl, kind: pickle, label: malicious, technique: pickle_reduce, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_reduce_tokenizer, path: corpus/fixtures/malicious_reduce_tokenizer.pkl, kind: pickle, label: malicious, technique: pickle_reduce, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_reduce_tuple, path: corpus/fixtures/malicious_reduce_tuple.pkl, kind: pickle, label: malicious, technique: pickle_reduce, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_reduce_partial, path: corpus/fixtures/malicious_reduce_partial.pkl, kind: pickle, label: malicious, technique: pickle_reduce, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_reduce_builtin_call, path: corpus/fixtures/malicious_reduce_builtin_call.pkl, kind: pickle, label: malicious, technique: pickle_reduce, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_reduce_state_dict, path: corpus/fixtures/malicious_reduce_state_dict.pkl, kind: pickle, label: malicious, technique: pickle_reduce, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_reduce_torch_zip, path: corpus/fixtures/malicious_reduce_torch_zip.bin, kind: torch_bin, label: malicious, technique: pickle_reduce, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: clean_state_dict, path: corpus/fixtures/clean_state_dict.pkl, kind: pickle, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_optimizer, path: corpus/fixtures/clean_optimizer.pkl, kind: pickle, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_tokenizer, path: corpus/fixtures/clean_tokenizer.pkl, kind: pickle, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_training_args, path: corpus/fixtures/clean_training_args.pkl, kind: pickle, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_tensor_shell, path: corpus/fixtures/clean_tensor_shell.pkl, kind: pickle, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_checkpoint, path: corpus/fixtures/clean_checkpoint.pkl, kind: pickle, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_scheduler, path: corpus/fixtures/clean_scheduler.pkl, kind: pickle, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_torch_zip, path: corpus/fixtures/clean_torch_zip.bin, kind: torch_bin, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: malicious_modeling_alpha, path: corpus/fixtures/modeling_alpha.py, kind: py_code, label: malicious, technique: custom_code_import, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_modeling_beta, path: corpus/fixtures/modeling_beta.py, kind: py_code, label: malicious, technique: custom_code_import, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_modeling_vision, path: corpus/fixtures/modeling_vision.py, kind: py_code, label: malicious, technique: custom_code_import, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_tokenizer_code, path: corpus/fixtures/tokenization_synthetic.py, kind: py_code, label: malicious, technique: custom_code_import, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: malicious_processing, path: corpus/fixtures/processing_synthetic.py, kind: py_code, label: malicious, technique: custom_code_import, evasion: null, expected_marker: modelscan-eval.canary}
+  - {id: clean_modeling_alpha, path: corpus/fixtures/modeling_alpha_clean.py, kind: py_code, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_modeling_beta, path: corpus/fixtures/modeling_beta_clean.py, kind: py_code, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_modeling_vision, path: corpus/fixtures/modeling_vision_clean.py, kind: py_code, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_tokenizer_code, path: corpus/fixtures/tokenization_synthetic_clean.py, kind: py_code, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_processing, path: corpus/fixtures/processing_synthetic_clean.py, kind: py_code, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: metadata_typosquat, path: corpus/fixtures/config_typosquat.json, kind: metadata, label: malicious, technique: metadata_spoof, evasion: null, expected_marker: null}
+  - {id: metadata_lineage_spoof, path: corpus/fixtures/config_lineage_spoof.json, kind: metadata, label: malicious, technique: metadata_spoof, evasion: null, expected_marker: null}
+  - {id: metadata_author_spoof, path: corpus/fixtures/config_author_spoof.json, kind: metadata, label: malicious, technique: metadata_spoof, evasion: null, expected_marker: null}
+  - {id: metadata_namespace_spoof, path: corpus/fixtures/config_namespace_spoof.json, kind: metadata, label: malicious, technique: metadata_spoof, evasion: null, expected_marker: null}
+  - {id: metadata_checkpoint_spoof, path: corpus/fixtures/config_checkpoint_spoof.json, kind: metadata, label: malicious, technique: metadata_spoof, evasion: null, expected_marker: null}
+  - {id: clean_metadata_alpha, path: corpus/fixtures/config_alpha.json, kind: metadata, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_metadata_beta, path: corpus/fixtures/config_beta.json, kind: metadata, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_metadata_vision, path: corpus/fixtures/config_vision.json, kind: metadata, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_metadata_tokenizer, path: corpus/fixtures/tokenizer_config.json, kind: metadata, label: clean, technique: null, evasion: null, expected_marker: null}
+  - {id: clean_metadata_processor, path: corpus/fixtures/processor_config.json, kind: metadata, label: clean, technique: null, evasion: null, expected_marker: null}

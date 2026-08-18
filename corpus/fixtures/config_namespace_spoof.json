@@ -1,0 +1,9 @@
+{
+  "_name_or_path": "official/models-v2",
+  "architectures": [
+    "SyntheticModel"
+  ],
+  "author": "Official Models",
+  "hidden_size": 16,
+  "model_type": "synthetic-transformer"
+}
