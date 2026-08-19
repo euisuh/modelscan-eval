@@ -74,8 +74,9 @@ only its expected canary.
   prevalence or performance on all real-world model repositories.
 - Static analysis only. No behavioral detonation and no claim about runtime
   containment.
-- Pickle-focused. Beyond one clean safetensors control, GGUF, ONNX, Keras H5,
-  and TensorFlow SavedModel exploit formats are out of scope.
+- Pickle-focused. The corpus covers pickle, torch-style pickle containers,
+  custom Hugging Face code, and metadata; safetensors, GGUF, ONNX, Keras H5,
+  and TensorFlow SavedModel exploit formats are out of scope for v1.
 - No live/networked payloads, real model downloads, or multi-gigabyte weights;
   size- and ecosystem-specific scanner behavior may differ in production.
 - Metadata spoof and custom-code cases are synthetic, so conclusions depend on
