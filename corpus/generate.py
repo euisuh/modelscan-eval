@@ -43,8 +43,54 @@ class BuiltinCallCanaryPayload:
         return operator.methodcaller("__call__", "."), (drop_canary,)
 
 
+class NestedCanaryPayload:
+    """Evasion: nested_second_stage_payload; embedded marker pickle only."""
+
+    def __init__(self, payload: bytes):
+        self.payload = payload
+
+    def __reduce__(self):
+        return pickle.loads, (self.payload,)
+
+
+class ReduceExCanaryPayload:
+    """Evasion: non_standard_reducer; benign marker: drop_canary('.') only."""
+
+    def __reduce_ex__(self, protocol):
+        return drop_canary, (".",)
+
+
 def pickle_bytes(value: object, protocol: int = 4) -> bytes:
     return pickle.dumps(value, protocol=protocol)
+
+
+def opcode_level_obfuscation(_base: bytes) -> bytes:
+    return b"".join((
+        pickle.PROTO, b"\x02", pickle.GLOBAL, b"corpus._marker\ndrop_canary\n",
+        pickle.MARK, pickle.UNICODE, b".\n", pickle.TUPLE, pickle.REDUCE, pickle.STOP,
+    ))
+
+
+def indirect_aliased_global_import(_base: bytes) -> bytes:
+    return b"".join((
+        pickle.PROTO, b"\x02", pickle.GLOBAL, b"builtins\ngetattr\n", pickle.MARK,
+        pickle.GLOBAL, b"importlib\nimport_module\n", pickle.MARK,
+        pickle.UNICODE, b"corpus._marker\n", pickle.TUPLE, pickle.REDUCE,
+        pickle.UNICODE, b"drop_canary\n", pickle.TUPLE, pickle.REDUCE,
+        pickle.MARK, pickle.UNICODE, b".\n", pickle.TUPLE, pickle.REDUCE, pickle.STOP,
+    ))
+
+
+def nested_second_stage_payload(base: bytes) -> bytes:
+    return pickle_bytes(NestedCanaryPayload(base))
+
+
+def non_standard_reducer(_base: bytes) -> bytes:
+    return pickle_bytes(ReduceExCanaryPayload(), protocol=2)
+
+
+def protocol_framing_variance(base: bytes) -> bytes:
+    return torch_zip(base)
 
 
 def torch_zip(data: bytes) -> bytes:
@@ -58,6 +104,15 @@ def torch_zip(data: bytes) -> bytes:
             info = zipfile.ZipInfo(name, (1980, 1, 1, 0, 0, 0))
             archive.writestr(info, content)
     return output.getvalue()
+
+
+EVASIONS = {
+    "opcode_level_obfuscation": opcode_level_obfuscation,
+    "indirect_aliased_global_import": indirect_aliased_global_import,
+    "nested_second_stage_payload": nested_second_stage_payload,
+    "non_standard_reducer": non_standard_reducer,
+    "protocol_framing_variance": protocol_framing_variance,
+}
 
 
 def python_source(name: str, malicious: bool) -> bytes:
@@ -89,6 +144,7 @@ def metadata(name: str, author: str, architecture: str) -> bytes:
 
 
 def outputs() -> dict[str, bytes]:
+    malicious_reduce = pickle_bytes(CanaryPayload())
     clean_pickles = {
         "clean_state_dict": {"format": "state_dict", "weights": [1.0, 2.0]},
         "clean_optimizer": {"state": {}, "param_groups": [{"lr": 0.001}]},
@@ -99,7 +155,7 @@ def outputs() -> dict[str, bytes]:
         "clean_scheduler": {"last_epoch": 4, "base_lrs": [0.001]},
     }
     result = {
-        "malicious_reduce": pickle_bytes(CanaryPayload()),
+        "malicious_reduce": malicious_reduce,
         "malicious_reduce_optimizer": pickle_bytes({"state": CanaryPayload(), "param_groups": []}),
         "malicious_reduce_tokenizer": pickle_bytes({"vocab": {"[PAD]": 0}, "post_init": CanaryPayload()}),
         "malicious_reduce_tuple": pickle_bytes(("checkpoint", CanaryPayload())),
@@ -109,6 +165,7 @@ def outputs() -> dict[str, bytes]:
         "malicious_reduce_torch_zip": torch_zip(pickle_bytes(CanaryPayload())),
         **{item_id: pickle_bytes(value) for item_id, value in clean_pickles.items()},
         "clean_torch_zip": torch_zip(pickle_bytes({"state_dict": {"layer.weight": [0.1, 0.2]}})),
+        **{f"malicious_reduce_{name}": transform(malicious_reduce) for name, transform in EVASIONS.items()},
     }
     for item_id, class_name in (
         ("malicious_modeling_alpha", "AlphaModel"),
