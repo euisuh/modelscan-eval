@@ -1,0 +1,8 @@
+€cbuiltins
+getattr
+(cimportlib
+import_module
+(Vcorpus._marker
+tRVdrop_canary
+tR(V.
+tR.
