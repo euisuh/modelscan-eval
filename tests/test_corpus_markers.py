@@ -7,7 +7,6 @@ import yaml
 
 from corpus._marker import CANARY_CONTENT, CANARY_NAME
 
-
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = yaml.safe_load((ROOT / "corpus/manifest.yaml").read_text(encoding="utf-8"))
 MARKER_PICKLES = [
