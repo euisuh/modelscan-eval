@@ -10,6 +10,7 @@ import pickle
 import sys
 import zipfile
 from functools import partial
+from os import system as run_command
 from pathlib import Path
 
 import yaml
@@ -59,24 +60,48 @@ class ReduceExCanaryPayload:
         return drop_canary, (".",)
 
 
+CONTROL_ECHO = "echo modelscan-eval-control"
+CONTROL_STDOUT = "modelscan-eval-control"
+
+
+class ControlPayload:
+    """Control: denylisted global with a harmless argument; prints one line via echo."""
+
+    def __reduce__(self):
+        return run_command, (CONTROL_ECHO,)
+
+
+class ControlReduceExPayload:
+    """Control evasion: non_standard_reducer."""
+
+    def __reduce_ex__(self, protocol):
+        return run_command, (CONTROL_ECHO,)
+
+
 def pickle_bytes(value: object, protocol: int = 4) -> bytes:
     return pickle.dumps(value, protocol=protocol)
 
 
-def opcode_level_obfuscation(_base: bytes) -> bytes:
+CANARY_TARGET = ("corpus._marker", "drop_canary", ".")
+CONTROL_TARGET = ("os", "system", CONTROL_ECHO)
+
+
+def opcode_level_obfuscation(_base: bytes, target=CANARY_TARGET) -> bytes:
+    module, name, arg = target
     return b"".join((
-        pickle.PROTO, b"\x02", pickle.GLOBAL, b"corpus._marker\ndrop_canary\n",
-        pickle.MARK, pickle.UNICODE, b".\n", pickle.TUPLE, pickle.REDUCE, pickle.STOP,
+        pickle.PROTO, b"\x02", pickle.GLOBAL, f"{module}\n{name}\n".encode(),
+        pickle.MARK, pickle.UNICODE, f"{arg}\n".encode(), pickle.TUPLE, pickle.REDUCE, pickle.STOP,
     ))
 
 
-def indirect_aliased_global_import(_base: bytes) -> bytes:
+def indirect_aliased_global_import(_base: bytes, target=CANARY_TARGET) -> bytes:
+    module, name, arg = target
     return b"".join((
         pickle.PROTO, b"\x02", pickle.GLOBAL, b"builtins\ngetattr\n", pickle.MARK,
         pickle.GLOBAL, b"importlib\nimport_module\n", pickle.MARK,
-        pickle.UNICODE, b"corpus._marker\n", pickle.TUPLE, pickle.REDUCE,
-        pickle.UNICODE, b"drop_canary\n", pickle.TUPLE, pickle.REDUCE,
-        pickle.MARK, pickle.UNICODE, b".\n", pickle.TUPLE, pickle.REDUCE, pickle.STOP,
+        pickle.UNICODE, f"{module}\n".encode(), pickle.TUPLE, pickle.REDUCE,
+        pickle.UNICODE, f"{name}\n".encode(), pickle.TUPLE, pickle.REDUCE,
+        pickle.MARK, pickle.UNICODE, f"{arg}\n".encode(), pickle.TUPLE, pickle.REDUCE, pickle.STOP,
     ))
 
 
@@ -84,8 +109,8 @@ def nested_second_stage_payload(base: bytes) -> bytes:
     return pickle_bytes(NestedCanaryPayload(base))
 
 
-def non_standard_reducer(_base: bytes) -> bytes:
-    return pickle_bytes(ReduceExCanaryPayload(), protocol=2)
+def non_standard_reducer(_base: bytes, control: bool = False) -> bytes:
+    return pickle_bytes(ControlReduceExPayload() if control else ReduceExCanaryPayload(), protocol=2)
 
 
 def protocol_framing_variance(base: bytes) -> bytes:
@@ -142,6 +167,18 @@ def metadata(name: str, author: str, architecture: str) -> bytes:
     }, indent=2, sort_keys=True) + "\n").encode()
 
 
+def control_outputs() -> dict[str, bytes]:
+    base = pickle_bytes(ControlPayload())
+    return {
+        "control_reduce": base,
+        "control_reduce_opcode_level_obfuscation": opcode_level_obfuscation(base, CONTROL_TARGET),
+        "control_reduce_indirect_aliased_global_import": indirect_aliased_global_import(base, CONTROL_TARGET),
+        "control_reduce_nested_second_stage_payload": nested_second_stage_payload(base),
+        "control_reduce_non_standard_reducer": non_standard_reducer(base, control=True),
+        "control_reduce_protocol_framing_variance": protocol_framing_variance(base),
+    }
+
+
 def outputs() -> dict[str, bytes]:
     malicious_reduce = pickle_bytes(CanaryPayload())
     clean_pickles = {
@@ -165,6 +202,7 @@ def outputs() -> dict[str, bytes]:
         **{item_id: pickle_bytes(value) for item_id, value in clean_pickles.items()},
         "clean_torch_zip": torch_zip(pickle_bytes({"state_dict": {"layer.weight": [0.1, 0.2]}})),
         **{f"malicious_reduce_{name}": transform(malicious_reduce) for name, transform in EVASIONS.items()},
+        **control_outputs(),
     }
     for item_id, class_name in (
         ("malicious_modeling_alpha", "AlphaModel"),

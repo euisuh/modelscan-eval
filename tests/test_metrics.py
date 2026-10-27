@@ -43,3 +43,17 @@ def test_counts_and_errors_reported() -> None:
     assert m["counts"]["detection"] == [1, 2]
     assert m["counts"]["fpr"] == [0, 1]
     assert m["errors"] == 1
+
+
+def test_control_group_is_tallied_separately() -> None:
+    items = [
+        {"id": "m", "label": "malicious", "evasion": None},
+        {"id": "c", "label": "malicious", "payload": "control", "evasion": None},
+        {"id": "ce", "label": "malicious", "payload": "control", "evasion": "alias"},
+    ]
+    verdicts = [{"scanner": "s", "item_id": i["id"], "flagged": i["id"] != "m", "error": None} for i in items]
+    m = compute_metrics(verdicts, items)["per_scanner"]["s"]
+    assert m["counts"]["detection"] == [0, 1]
+    assert m["control_detection_rate"] == 1.0
+    assert m["control_evasion_robustness_by_technique"] == {"alias": 1.0}
+    assert m["evasion_robustness_by_technique"] == {"alias": None}
