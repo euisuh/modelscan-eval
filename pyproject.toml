@@ -6,11 +6,18 @@ build-backend = "setuptools.build_meta"
 name = "modelscan-eval"
 version = "0.1.0"
 requires-python = ">=3.10"
-dependencies = ["pytest", "PyYAML"]
+dependencies = ["PyYAML"]
 
 [project.optional-dependencies]
 scanners = ["picklescan", "modelscan"]
+dev = ["pytest", "ruff"]
 
 [tool.setuptools.packages.find]
 include = ["corpus*", "eval*", "scanners*"]
 namespaces = true
+
+[tool.ruff]
+line-length = 140
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
