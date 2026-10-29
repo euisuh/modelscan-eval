@@ -90,6 +90,20 @@ def main() -> None:
             for scanner in scanners
         ],
         "",
+        "## Control group (known-dangerous global, harmless echo)",
+        "",
+        "| Scanner | Base | " + " | ".join(techniques) + " |",
+        f"|---|---:|{'|'.join(['---:'] * len(techniques))}|",
+        *[
+            f"| {scanner} | {format_rate(m['control_detection_rate'], m['counts']['control_detection'])} | "
+            + " | ".join(
+                format_rate(m["control_evasion_robustness_by_technique"][t], m["counts"]["control_evasion"][t])
+                for t in techniques
+            )
+            + " |"
+            for scanner, m in metrics["per_scanner"].items()
+        ],
+        "",
     ]
     REPORT_PATH.write_text("\n".join(lines), encoding="utf-8")
 
