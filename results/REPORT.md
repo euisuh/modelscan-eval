@@ -1,6 +1,6 @@
 # modelscan-eval report
 
-- Corpus: `sha256:385b48c417f80e3c110e9e3bbfa54735b0e723f97369fe5d8ee94b5f5615bdd9` (41 items)
+- Corpus: `sha256:daa6dd0a7c7f46d7aaefaa2f340a942b4d991213661dd247c33db0b6c20a439f` (47 items)
 - Available scanners: `picklescan`, `modelscan`, `opcode_baseline`
 - Unavailable scanners: none
 - `picklescan` version: 1.0.5
@@ -21,3 +21,11 @@
 | picklescan | 100.0% (1/1) | 100.0% (1/1) | 0.0% (0/1) | 0.0% (0/1) | 0.0% (0/1) |
 | modelscan | 100.0% (1/1) | 100.0% (1/1) | 0.0% (0/1) | 0.0% (0/1) | 0.0% (0/1) |
 | opcode_baseline | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) |
+
+## Control group (known-dangerous global, harmless echo)
+
+| Scanner | Base | indirect_aliased_global_import | nested_second_stage_payload | non_standard_reducer | opcode_level_obfuscation | protocol_framing_variance |
+|---|---:|---:|---:|---:|---:|---:|
+| picklescan | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) |
+| modelscan | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) |
+| opcode_baseline | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) | 100.0% (1/1) |
