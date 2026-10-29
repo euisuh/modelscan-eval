@@ -1,7 +1,7 @@
 .PHONY: check eval report
 
 check:
-	python3 tools/safety_lint.py corpus/ && pytest
+	python3 tools/safety_lint.py corpus/ && ruff check . && pytest
 
 eval:
 	mkdir -p results

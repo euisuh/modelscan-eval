@@ -2,63 +2,895 @@
   "metrics": {
     "per_scanner": {
       "modelscan": {
-        "detection_rate": null,
-        "evasion_robustness_by_technique": {
-          "indirect_aliased_global_import": null,
-          "nested_second_stage_payload": null,
-          "non_standard_reducer": null,
-          "opcode_level_obfuscation": null,
-          "protocol_framing_variance": null
+        "counts": {
+          "detection": [
+            0,
+            18
+          ],
+          "evasion": {
+            "indirect_aliased_global_import": [
+              1,
+              1
+            ],
+            "nested_second_stage_payload": [
+              1,
+              1
+            ],
+            "non_standard_reducer": [
+              0,
+              1
+            ],
+            "opcode_level_obfuscation": [
+              0,
+              1
+            ],
+            "protocol_framing_variance": [
+              0,
+              1
+            ]
+          },
+          "fpr": [
+            0,
+            18
+          ]
         },
-        "fpr": null
+        "detection_rate": 0.0,
+        "errors": 0,
+        "evasion_robustness_by_technique": {
+          "indirect_aliased_global_import": 1.0,
+          "nested_second_stage_payload": 1.0,
+          "non_standard_reducer": 0.0,
+          "opcode_level_obfuscation": 0.0,
+          "protocol_framing_variance": 0.0
+        },
+        "fpr": 0.0
       },
       "opcode_baseline": {
-        "detection_rate": 0.3888888888888889,
+        "counts": {
+          "detection": [
+            8,
+            18
+          ],
+          "evasion": {
+            "indirect_aliased_global_import": [
+              1,
+              1
+            ],
+            "nested_second_stage_payload": [
+              1,
+              1
+            ],
+            "non_standard_reducer": [
+              1,
+              1
+            ],
+            "opcode_level_obfuscation": [
+              1,
+              1
+            ],
+            "protocol_framing_variance": [
+              1,
+              1
+            ]
+          },
+          "fpr": [
+            0,
+            18
+          ]
+        },
+        "detection_rate": 0.4444444444444444,
+        "errors": 0,
         "evasion_robustness_by_technique": {
           "indirect_aliased_global_import": 1.0,
           "nested_second_stage_payload": 1.0,
           "non_standard_reducer": 1.0,
           "opcode_level_obfuscation": 1.0,
-          "protocol_framing_variance": 0.0
+          "protocol_framing_variance": 1.0
         },
         "fpr": 0.0
       },
       "picklescan": {
-        "detection_rate": null,
-        "evasion_robustness_by_technique": {
-          "indirect_aliased_global_import": null,
-          "nested_second_stage_payload": null,
-          "non_standard_reducer": null,
-          "opcode_level_obfuscation": null,
-          "protocol_framing_variance": null
+        "counts": {
+          "detection": [
+            2,
+            18
+          ],
+          "evasion": {
+            "indirect_aliased_global_import": [
+              1,
+              1
+            ],
+            "nested_second_stage_payload": [
+              1,
+              1
+            ],
+            "non_standard_reducer": [
+              0,
+              1
+            ],
+            "opcode_level_obfuscation": [
+              0,
+              1
+            ],
+            "protocol_framing_variance": [
+              0,
+              1
+            ]
+          },
+          "fpr": [
+            0,
+            18
+          ]
         },
-        "fpr": null
+        "detection_rate": 0.1111111111111111,
+        "errors": 0,
+        "evasion_robustness_by_technique": {
+          "indirect_aliased_global_import": 1.0,
+          "nested_second_stage_payload": 1.0,
+          "non_standard_reducer": 0.0,
+          "opcode_level_obfuscation": 0.0,
+          "protocol_framing_variance": 0.0
+        },
+        "fpr": 0.0
       }
     }
   },
   "run_meta": {
     "available_scanners": [
+      "picklescan",
+      "modelscan",
       "opcode_baseline"
     ],
     "corpus_item_count": 41,
     "corpus_version": "sha256:385b48c417f80e3c110e9e3bbfa54735b0e723f97369fe5d8ee94b5f5615bdd9",
-    "unavailable_scanners": [
-      "picklescan",
-      "modelscan"
-    ]
+    "scanner_versions": {
+      "modelscan": "0.8.8",
+      "picklescan": "1.0.5"
+    },
+    "unavailable_scanners": []
   },
   "verdicts": [
     {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 1\nDangerous globals: 0",
+      "duration_ms": 41.63391690235585,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce",
       "scanner": "picklescan",
-      "status": "skipped"
+      "severity": null
     },
     {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 1\nDangerous globals: 0",
+      "duration_ms": 43.50216605234891,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_optimizer",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 1\nDangerous globals: 0",
+      "duration_ms": 44.37820799648762,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_tokenizer",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 1\nDangerous globals: 0",
+      "duration_ms": 42.42099996190518,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_tuple",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "corpus/fixtures/malicious_reduce_partial.pkl: dangerous import 'functools partial' FOUND\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 1\nSuspicious globals: 1\nDangerous globals: 1",
+      "duration_ms": 42.55733301397413,
+      "error": null,
+      "flagged": true,
+      "item_id": "malicious_reduce_partial",
+      "scanner": "picklescan",
+      "severity": "high"
+    },
+    {
+      "detail": "corpus/fixtures/malicious_reduce_builtin_call.pkl: dangerous import 'operator methodcaller' FOUND\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 1\nSuspicious globals: 1\nDangerous globals: 1",
+      "duration_ms": 41.55370802618563,
+      "error": null,
+      "flagged": true,
+      "item_id": "malicious_reduce_builtin_call",
+      "scanner": "picklescan",
+      "severity": "high"
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 1\nDangerous globals: 0",
+      "duration_ms": 40.62191699631512,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_state_dict",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 1\nDangerous globals: 0",
+      "duration_ms": 40.19179102033377,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_torch_zip",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 44.11637503653765,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_state_dict",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 43.85354195255786,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_optimizer",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 52.79687501024455,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_tokenizer",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 46.800958923995495,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_training_args",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 43.79916691686958,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_tensor_shell",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 50.492624985054135,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_checkpoint",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 54.00758306495845,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_scheduler",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 55.937667028047144,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_torch_zip",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 1\nDangerous globals: 0",
+      "duration_ms": 55.29516702517867,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_opcode_level_obfuscation",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "corpus/fixtures/malicious_reduce_indirect_aliased_global_import.pkl: dangerous import 'builtins getattr' FOUND\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 1\nSuspicious globals: 1\nDangerous globals: 1",
+      "duration_ms": 44.64745905715972,
+      "error": null,
+      "flagged": true,
+      "item_id": "malicious_reduce_indirect_aliased_global_import",
+      "scanner": "picklescan",
+      "severity": "high"
+    },
+    {
+      "detail": "corpus/fixtures/malicious_reduce_nested_second_stage_payload.pkl: dangerous import '_pickle loads' FOUND\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 1\nSuspicious globals: 0\nDangerous globals: 1",
+      "duration_ms": 69.77587507572025,
+      "error": null,
+      "flagged": true,
+      "item_id": "malicious_reduce_nested_second_stage_payload",
+      "scanner": "picklescan",
+      "severity": "high"
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 1\nDangerous globals: 0",
+      "duration_ms": 149.7255420545116,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_non_standard_reducer",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 1\nDangerous globals: 0",
+      "duration_ms": 67.44250003248453,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_protocol_framing_variance",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/modeling_alpha.py as pickle: at position 0, opcode b'\"' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 79.73658305127174,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_modeling_alpha",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/modeling_beta.py as pickle: at position 0, opcode b'\"' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 79.6114169061184,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_modeling_beta",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/modeling_vision.py as pickle: at position 0, opcode b'\"' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 52.17704095412046,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_modeling_vision",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/tokenization_synthetic.py as pickle: at position 0, opcode b'\"' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 57.91862495243549,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_tokenizer_code",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/processing_synthetic.py as pickle: at position 0, opcode b'\"' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 57.17699998058379,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_processing",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/modeling_alpha_clean.py as pickle: at position 0, opcode b'\"' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 60.61979103833437,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_modeling_alpha",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/modeling_beta_clean.py as pickle: at position 0, opcode b'\"' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 63.48512496333569,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_modeling_beta",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/modeling_vision_clean.py as pickle: at position 0, opcode b'\"' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 67.12020910345018,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_modeling_vision",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/tokenization_synthetic_clean.py as pickle: at position 0, opcode b'\"' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 69.73641703370959,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_tokenizer_code",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/processing_synthetic_clean.py as pickle: at position 0, opcode b'\"' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 62.58625001646578,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_processing",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/config_typosquat.json as pickle: at position 0, opcode b'{' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 46.262625022791326,
+      "error": null,
+      "flagged": false,
+      "item_id": "metadata_typosquat",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/config_lineage_spoof.json as pickle: at position 0, opcode b'{' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 51.03174992837012,
+      "error": null,
+      "flagged": false,
+      "item_id": "metadata_lineage_spoof",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/config_author_spoof.json as pickle: at position 0, opcode b'{' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 57.40383290685713,
+      "error": null,
+      "flagged": false,
+      "item_id": "metadata_author_spoof",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/config_namespace_spoof.json as pickle: at position 0, opcode b'{' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 67.39620806183666,
+      "error": null,
+      "flagged": false,
+      "item_id": "metadata_namespace_spoof",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/config_checkpoint_spoof.json as pickle: at position 0, opcode b'{' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 74.14620800409466,
+      "error": null,
+      "flagged": false,
+      "item_id": "metadata_checkpoint_spoof",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/config_alpha.json as pickle: at position 0, opcode b'{' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 58.42070793733001,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_metadata_alpha",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/config_beta.json as pickle: at position 0, opcode b'{' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 54.151542019099,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_metadata_beta",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/config_vision.json as pickle: at position 0, opcode b'{' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 46.8873749487102,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_metadata_vision",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/tokenizer_config.json as pickle: at position 0, opcode b'{' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 60.723916976712644,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_metadata_tokenizer",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "WARNING: could not parse corpus/fixtures/processor_config.json as pickle: at position 0, opcode b'{' unknown\n----------- SCAN SUMMARY -----------\nScanned files: 1\nInfected files: 0\nSuspicious globals: 0\nDangerous globals: 0",
+      "duration_ms": 55.727917002514005,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_metadata_processor",
+      "scanner": "picklescan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.221940\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": [\"malicious_reduce.pkl\"]}}, \n\"issues\": [], \"errors\": []}",
+      "duration_ms": 86.87904197722673,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce",
       "scanner": "modelscan",
-      "status": "skipped"
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_optimizer.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_optimizer.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.306889\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_optimizer.pkl\"]}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 82.26270799059421,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_optimizer",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_tokenizer.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_tokenizer.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.383004\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_tokenizer.pkl\"]}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.61000001057982,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_tokenizer",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_tuple.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_tuple.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.456342\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_tuple.pkl\"]}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.7695000609383,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_tuple",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_partial.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_partial.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.531226\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_partial.pkl\"]}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 76.418292010203,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_partial",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_builtin_call.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_builtin_call.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.609824\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_builtin_call.pkl\"]}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 75.14770794659853,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_builtin_call",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_state_dict.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_state_dict.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.684085\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_state_dict.pkl\"]}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.19199997093529,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_state_dict",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_torch_zip.bin:archive/data.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_torch_zip.bin\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.758770\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_torch_zip.bin:archive/data.pkl\"]}}, \"issues\": [], \"errors\": \n[]}",
+      "duration_ms": 75.99116605706513,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_torch_zip",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/clean_state_dict.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/clean_state_dict.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.833182\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": [\"clean_state_dict.pkl\"]}}, \n\"issues\": [], \"errors\": []}",
+      "duration_ms": 73.18762491922826,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_state_dict",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/clean_optimizer.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/clean_optimizer.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.907842\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": [\"clean_optimizer.pkl\"]}}, \n\"issues\": [], \"errors\": []}",
+      "duration_ms": 80.67529194522649,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_optimizer",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/clean_tokenizer.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/clean_tokenizer.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:28.998496\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": [\"clean_tokenizer.pkl\"]}}, \n\"issues\": [], \"errors\": []}",
+      "duration_ms": 85.33641695976257,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_tokenizer",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/clean_training_args.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/clean_training_args.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.079392\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": [\"clean_training_args.pkl\"]}}, \n\"issues\": [], \"errors\": []}",
+      "duration_ms": 82.5856669107452,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_training_args",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/clean_tensor_shell.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/clean_tensor_shell.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.158369\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": [\"clean_tensor_shell.pkl\"]}}, \n\"issues\": [], \"errors\": []}",
+      "duration_ms": 78.22012493852526,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_tensor_shell",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/clean_checkpoint.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/clean_checkpoint.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.233882\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": [\"clean_checkpoint.pkl\"]}}, \n\"issues\": [], \"errors\": []}",
+      "duration_ms": 74.16966697201133,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_checkpoint",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/clean_scheduler.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/clean_scheduler.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.309349\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": [\"clean_scheduler.pkl\"]}}, \n\"issues\": [], \"errors\": []}",
+      "duration_ms": 76.34487503673881,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_scheduler",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/clean_torch_zip.bin:archive/data.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/clean_torch_zip.bin\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.387909\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"clean_torch_zip.bin:archive/data.pkl\"]}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 79.32200003415346,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_torch_zip",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_opcode_level_obfuscation.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_opcode_level_obfuscation.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.466622\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_opcode_level_obfuscation.pkl\"]}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 78.51400005165488,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_opcode_level_obfuscation",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_indirect_aliased_global_import.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 1}, \"total_issues\": 1, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_indirect_aliased_global_import.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.553058\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_indirect_aliased_global_import.pkl\"]}}, \"issues\": \n[{\"description\": \"Use of unsafe operator 'getattr' from module 'builtins'\", \n\"operator\": \"getattr\", \"module\": \"builtins\", \"source\": \n\"malicious_reduce_indirect_aliased_global_import.pkl\", \"scanner\": \n\"modelscan.scanners.PickleUnsafeOpScan\", \"severity\": \"CRITICAL\"}], \"errors\": []}",
+      "duration_ms": 89.22050008550286,
+      "error": null,
+      "flagged": true,
+      "item_id": "malicious_reduce_indirect_aliased_global_import",
+      "scanner": "modelscan",
+      "severity": "high"
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_nested_second_stage_payload.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 1}, \"total_issues\": 1, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_nested_second_stage_payload.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.635461\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_nested_second_stage_payload.pkl\"]}}, \"issues\": \n[{\"description\": \"Use of unsafe operator 'loads' from module '_pickle'\", \n\"operator\": \"loads\", \"module\": \"_pickle\", \"source\": \n\"malicious_reduce_nested_second_stage_payload.pkl\", \"scanner\": \n\"modelscan.scanners.PickleUnsafeOpScan\", \"severity\": \"CRITICAL\"}], \"errors\": []}",
+      "duration_ms": 80.43158298823982,
+      "error": null,
+      "flagged": true,
+      "item_id": "malicious_reduce_nested_second_stage_payload",
+      "scanner": "modelscan",
+      "severity": "high"
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_non_standard_reducer.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_non_standard_reducer.pkl\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.713188\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_non_standard_reducer.pkl\"]}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.99883393757045,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_non_standard_reducer",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\nScanning corpus/fixtures/malicious_reduce_protocol_framing_variance.bin:archive/data.pkl using modelscan.scanners.PickleUnsafeOpScan model scan\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/malicious_reduce_protocol_framing_variance.bin\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.790383\",\n\"scanned\": {\"total_scanned\": 1, \"scanned_files\": \n[\"malicious_reduce_protocol_framing_variance.bin:archive/data.pkl\"]}}, \"issues\":\n[], \"errors\": []}",
+      "duration_ms": 79.65054095257074,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_reduce_protocol_framing_variance",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/modeling_alpha.py\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.870497\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 80.18504199571908,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_modeling_alpha",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/modeling_beta.py\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:29.949705\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 79.48758301790804,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_modeling_beta",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/modeling_vision.py\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.030744\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 78.0950830085203,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_modeling_vision",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/tokenization_synthetic.py\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.105376\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.74333397112787,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_tokenizer_code",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/processing_synthetic.py\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.181299\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 75.16229199245572,
+      "error": null,
+      "flagged": false,
+      "item_id": "malicious_processing",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/modeling_alpha_clean.py\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.255689\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.29575000423938,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_modeling_alpha",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/modeling_beta_clean.py\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.329057\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 73.16987495869398,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_modeling_beta",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/modeling_vision_clean.py\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.402390\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 73.98166693747044,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_modeling_vision",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/tokenization_synthetic_clean.py\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.477903\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 76.04341697879136,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_tokenizer_code",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/processing_synthetic_clean.py\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.552911\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.75454197265208,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_processing",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/config_typosquat.json\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.629085\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.84275009483099,
+      "error": null,
+      "flagged": false,
+      "item_id": "metadata_typosquat",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/config_lineage_spoof.json\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.702031\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 73.4836250776425,
+      "error": null,
+      "flagged": false,
+      "item_id": "metadata_lineage_spoof",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/config_author_spoof.json\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.776728\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.52300004661083,
+      "error": null,
+      "flagged": false,
+      "item_id": "metadata_author_spoof",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/config_namespace_spoof.json\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.850533\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 75.34945802763104,
+      "error": null,
+      "flagged": false,
+      "item_id": "metadata_namespace_spoof",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/config_checkpoint_spoof.json\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:30.928150\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 75.5743330810219,
+      "error": null,
+      "flagged": false,
+      "item_id": "metadata_checkpoint_spoof",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/config_alpha.json\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:31.001400\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 73.66045797243714,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_metadata_alpha",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/config_beta.json\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:31.076154\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.856249964796,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_metadata_beta",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/config_vision.json\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:31.151669\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 79.92883305996656,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_metadata_vision",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/tokenizer_config.json\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:31.233187\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 75.9620419703424,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_metadata_tokenizer",
+      "scanner": "modelscan",
+      "severity": null
+    },
+    {
+      "detail": "No settings file detected at modelscan-settings.toml. Using defaults. \n\n{\"summary\": {\"total_issues_by_severity\": {\"LOW\": 0, \"MEDIUM\": 0, \"HIGH\": 0, \n\"CRITICAL\": 0}, \"total_issues\": 0, \"input_path\": \n\"corpus/fix\ntures/processor_config.json\", \"absolute_path\": \n\"corpus/fix\ntures\", \"modelscan_version\": \"0.8.8\", \"timestamp\": \"2026-10-28T00:35:31.307104\",\n\"scanned\": {\"total_scanned\": 0}}, \"issues\": [], \"errors\": []}",
+      "duration_ms": 74.52687504701316,
+      "error": null,
+      "flagged": false,
+      "item_id": "clean_metadata_processor",
+      "scanner": "modelscan",
+      "severity": null
     },
     {
       "detail": "dangerous opcodes: STACK_GLOBAL, REDUCE",
-      "duration_ms": 0.046542001655325294,
+      "duration_ms": 0.108166947029531,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce",
@@ -67,7 +899,7 @@
     },
     {
       "detail": "dangerous opcodes: STACK_GLOBAL, REDUCE",
-      "duration_ms": 0.03137500607408583,
+      "duration_ms": 0.04745798651129007,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce_optimizer",
@@ -76,7 +908,7 @@
     },
     {
       "detail": "dangerous opcodes: STACK_GLOBAL, REDUCE",
-      "duration_ms": 0.027292000595480204,
+      "duration_ms": 0.045375083573162556,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce_tokenizer",
@@ -85,7 +917,7 @@
     },
     {
       "detail": "dangerous opcodes: STACK_GLOBAL, REDUCE",
-      "duration_ms": 0.023290995159186423,
+      "duration_ms": 0.03483297768980265,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce_tuple",
@@ -94,7 +926,7 @@
     },
     {
       "detail": "dangerous opcodes: STACK_GLOBAL, STACK_GLOBAL, REDUCE, REDUCE",
-      "duration_ms": 0.024958004360087216,
+      "duration_ms": 0.0391670037060976,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce_partial",
@@ -103,7 +935,7 @@
     },
     {
       "detail": "dangerous opcodes: STACK_GLOBAL, REDUCE, STACK_GLOBAL, REDUCE",
-      "duration_ms": 0.023500004317611456,
+      "duration_ms": 0.037958030588924885,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce_builtin_call",
@@ -112,7 +944,7 @@
     },
     {
       "detail": "dangerous opcodes: STACK_GLOBAL, REDUCE",
-      "duration_ms": 0.022374995751306415,
+      "duration_ms": 0.04233303479850292,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce_state_dict",
@@ -120,17 +952,17 @@
       "severity": "high"
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.025083005311898887,
-      "error": "'utf-8' codec can't decode byte 0xb1 in position 13: invalid start byte",
-      "flagged": false,
+      "detail": "dangerous opcodes: STACK_GLOBAL, REDUCE",
+      "duration_ms": 0.35550002939999104,
+      "error": null,
+      "flagged": true,
       "item_id": "malicious_reduce_torch_zip",
       "scanner": "opcode_baseline",
-      "severity": null
+      "severity": "high"
     },
     {
       "detail": "no dangerous opcodes",
-      "duration_ms": 0.02370899892412126,
+      "duration_ms": 0.0426670303568244,
       "error": null,
       "flagged": false,
       "item_id": "clean_state_dict",
@@ -139,7 +971,7 @@
     },
     {
       "detail": "no dangerous opcodes",
-      "duration_ms": 0.022375010303221643,
+      "duration_ms": 0.03470899537205696,
       "error": null,
       "flagged": false,
       "item_id": "clean_optimizer",
@@ -148,7 +980,7 @@
     },
     {
       "detail": "no dangerous opcodes",
-      "duration_ms": 0.021624990040436387,
+      "duration_ms": 0.033082906156778336,
       "error": null,
       "flagged": false,
       "item_id": "clean_tokenizer",
@@ -157,7 +989,7 @@
     },
     {
       "detail": "no dangerous opcodes",
-      "duration_ms": 0.020749997929669917,
+      "duration_ms": 0.03224995452910662,
       "error": null,
       "flagged": false,
       "item_id": "clean_training_args",
@@ -166,7 +998,7 @@
     },
     {
       "detail": "no dangerous opcodes",
-      "duration_ms": 0.022582986275665462,
+      "duration_ms": 0.034125056117773056,
       "error": null,
       "flagged": false,
       "item_id": "clean_tensor_shell",
@@ -175,7 +1007,7 @@
     },
     {
       "detail": "no dangerous opcodes",
-      "duration_ms": 0.021333005861379206,
+      "duration_ms": 0.032125040888786316,
       "error": null,
       "flagged": false,
       "item_id": "clean_checkpoint",
@@ -184,7 +1016,7 @@
     },
     {
       "detail": "no dangerous opcodes",
-      "duration_ms": 0.02066700835712254,
+      "duration_ms": 0.030125025659799576,
       "error": null,
       "flagged": false,
       "item_id": "clean_scheduler",
@@ -192,9 +1024,9 @@
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.020958003005944192,
-      "error": "'utf-8' codec can't decode byte 0xf0 in position 14: invalid continuation byte",
+      "detail": "no dangerous opcodes",
+      "duration_ms": 0.07083301898092031,
+      "error": null,
       "flagged": false,
       "item_id": "clean_torch_zip",
       "scanner": "opcode_baseline",
@@ -202,7 +1034,7 @@
     },
     {
       "detail": "dangerous opcodes: GLOBAL, REDUCE",
-      "duration_ms": 0.506000011228025,
+      "duration_ms": 0.14062493573874235,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce_opcode_level_obfuscation",
@@ -211,7 +1043,7 @@
     },
     {
       "detail": "dangerous opcodes: GLOBAL, GLOBAL, REDUCE, REDUCE, REDUCE",
-      "duration_ms": 0.03445800393819809,
+      "duration_ms": 0.04491698928177357,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce_indirect_aliased_global_import",
@@ -220,7 +1052,7 @@
     },
     {
       "detail": "dangerous opcodes: STACK_GLOBAL, REDUCE",
-      "duration_ms": 0.025832996470853686,
+      "duration_ms": 0.03691692836582661,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce_nested_second_stage_payload",
@@ -229,7 +1061,7 @@
     },
     {
       "detail": "dangerous opcodes: GLOBAL, REDUCE",
-      "duration_ms": 0.02429200685583055,
+      "duration_ms": 0.038708909414708614,
       "error": null,
       "flagged": true,
       "item_id": "malicious_reduce_non_standard_reducer",
@@ -237,189 +1069,189 @@
       "severity": "high"
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.021499989088624716,
-      "error": "'utf-8' codec can't decode byte 0xb1 in position 13: invalid start byte",
-      "flagged": false,
+      "detail": "dangerous opcodes: STACK_GLOBAL, REDUCE",
+      "duration_ms": 0.06262492388486862,
+      "error": null,
+      "flagged": true,
       "item_id": "malicious_reduce_protocol_framing_variance",
       "scanner": "opcode_baseline",
-      "severity": null
+      "severity": "high"
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.01999999221879989,
-      "error": "at position 0, opcode b'\"' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0026669586077332497,
+      "error": null,
       "flagged": false,
       "item_id": "malicious_modeling_alpha",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.01895800232887268,
-      "error": "at position 0, opcode b'\"' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0020419247448444366,
+      "error": null,
       "flagged": false,
       "item_id": "malicious_modeling_beta",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.018457998521625996,
-      "error": "at position 0, opcode b'\"' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.00200001522898674,
+      "error": null,
       "flagged": false,
       "item_id": "malicious_modeling_vision",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.01812499249354005,
-      "error": "at position 0, opcode b'\"' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0018330756574869156,
+      "error": null,
       "flagged": false,
       "item_id": "malicious_tokenizer_code",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.01779200101736933,
-      "error": "at position 0, opcode b'\"' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0018329592421650887,
+      "error": null,
       "flagged": false,
       "item_id": "malicious_processing",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.018082995666190982,
-      "error": "at position 0, opcode b'\"' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0019159633666276932,
+      "error": null,
       "flagged": false,
       "item_id": "clean_modeling_alpha",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.01754099503159523,
-      "error": "at position 0, opcode b'\"' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0019170111045241356,
+      "error": null,
       "flagged": false,
       "item_id": "clean_modeling_beta",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.0177919864654541,
-      "error": "at position 0, opcode b'\"' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0017920974642038345,
+      "error": null,
       "flagged": false,
       "item_id": "clean_modeling_vision",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.01733399403747171,
-      "error": "at position 0, opcode b'\"' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0017910497263073921,
+      "error": null,
       "flagged": false,
       "item_id": "clean_tokenizer_code",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.021500003640539944,
-      "error": "at position 0, opcode b'\"' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0018330756574869156,
+      "error": null,
       "flagged": false,
       "item_id": "clean_processing",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.017583995941095054,
-      "error": "at position 0, opcode b'{' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.00208395067602396,
+      "error": null,
       "flagged": false,
       "item_id": "metadata_typosquat",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.017915997887030244,
-      "error": "at position 0, opcode b'{' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0017499551177024841,
+      "error": null,
       "flagged": false,
       "item_id": "metadata_lineage_spoof",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.01750000228639692,
-      "error": "at position 0, opcode b'{' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.001708976924419403,
+      "error": null,
       "flagged": false,
       "item_id": "metadata_author_spoof",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.017915997887030244,
-      "error": "at position 0, opcode b'{' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0018749851733446121,
+      "error": null,
       "flagged": false,
       "item_id": "metadata_namespace_spoof",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.018042002920992672,
-      "error": "at position 0, opcode b'{' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.001750071533024311,
+      "error": null,
       "flagged": false,
       "item_id": "metadata_checkpoint_spoof",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.016833000699989498,
-      "error": "at position 0, opcode b'{' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0018749851733446121,
+      "error": null,
       "flagged": false,
       "item_id": "clean_metadata_alpha",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.017708996892906725,
-      "error": "at position 0, opcode b'{' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.00200001522898674,
+      "error": null,
       "flagged": false,
       "item_id": "clean_metadata_beta",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.017583006410859525,
-      "error": "at position 0, opcode b'{' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0017919810488820076,
+      "error": null,
       "flagged": false,
       "item_id": "clean_metadata_vision",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.017625003238208592,
-      "error": "at position 0, opcode b'{' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0018338905647397041,
+      "error": null,
       "flagged": false,
       "item_id": "clean_metadata_tokenizer",
       "scanner": "opcode_baseline",
       "severity": null
     },
     {
-      "detail": "scan failed",
-      "duration_ms": 0.016833000699989498,
-      "error": "at position 0, opcode b'{' unknown",
+      "detail": "unsupported format: not a pickle file",
+      "duration_ms": 0.0017919810488820076,
+      "error": null,
       "flagged": false,
       "item_id": "clean_metadata_processor",
       "scanner": "opcode_baseline",

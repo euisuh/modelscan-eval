@@ -24,7 +24,8 @@ class ModelScanAdapter(ScannerAdapter):
                 check=False,
             )
             detail = result.stdout.strip() or result.stderr.strip()
-            error = None if result.returncode in (0, 1) else detail or f"exit code {result.returncode}"
+            # modelscan exit codes: 0 clean, 1 issues found, 3 no supported files (not an error)
+            error = None if result.returncode in (0, 1, 3) else detail or f"exit code {result.returncode}"
             return Verdict(
                 self.name,
                 path.stem,
