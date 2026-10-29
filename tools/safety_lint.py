@@ -7,7 +7,6 @@ import re
 import sys
 from pathlib import Path
 
-
 DENIED = (
     re.compile(rb"\bsocket\b", re.IGNORECASE),
     re.compile(rb"\burllib\b", re.IGNORECASE),

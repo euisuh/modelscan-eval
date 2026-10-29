@@ -26,3 +26,20 @@ def test_rates_exclude_skipped_verdicts() -> None:
     assert metrics["detection_rate"] == 1 / 2
     assert metrics["fpr"] == 1 / 2
     assert metrics["evasion_robustness_by_technique"] == {"alias": 1.0}
+
+
+def test_counts_and_errors_reported() -> None:
+    items = [
+        {"id": "m1", "label": "malicious", "evasion": None},
+        {"id": "m2", "label": "malicious", "evasion": None},
+        {"id": "c1", "label": "clean", "evasion": None},
+    ]
+    verdicts = [
+        {"scanner": "s", "item_id": "m1", "flagged": True, "error": None},
+        {"scanner": "s", "item_id": "m2", "flagged": False, "error": "boom"},
+        {"scanner": "s", "item_id": "c1", "flagged": False, "error": None},
+    ]
+    m = compute_metrics(verdicts, items)["per_scanner"]["s"]
+    assert m["counts"]["detection"] == [1, 2]
+    assert m["counts"]["fpr"] == [0, 1]
+    assert m["errors"] == 1

@@ -1,6 +1,5 @@
 from pathlib import Path
 
-
 CANARY_NAME = "modelscan-eval.canary"
 CANARY_CONTENT = "MODELscan-eval benign canary\n"
 

@@ -7,10 +7,9 @@ from pathlib import Path
 
 import yaml
 
-from scanners.opcode_baseline import OpcodeBaseline
 from scanners.modelscan_adapter import ModelScanAdapter
+from scanners.opcode_baseline import OpcodeBaseline
 from scanners.picklescan_adapter import PickleScanAdapter
-
 
 ROOT = Path(__file__).resolve().parents[1]
 SCANNERS = {
@@ -25,7 +24,15 @@ def run(scanner_name: str):
     if not adapter.available():
         return None
     manifest = yaml.safe_load((ROOT / "corpus/manifest.yaml").read_text(encoding="utf-8"))
-    return [replace(adapter.scan(ROOT / item["path"]), item_id=item["id"]) for item in manifest["items"]]
+    missing = [item["path"] for item in manifest["items"] if not (ROOT / item["path"]).is_file()]
+    if missing:
+        raise FileNotFoundError(f"manifest fixtures missing (run corpus/generate.py): {missing}")
+    verdicts = []
+    for item in manifest["items"]:
+        verdict = adapter.scan(ROOT / item["path"])
+        # keep committed results free of machine-specific absolute paths
+        verdicts.append(replace(verdict, item_id=item["id"], detail=verdict.detail.replace(f"{ROOT}/", "")))
+    return verdicts
 
 
 def main() -> None:
