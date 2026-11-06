@@ -90,7 +90,7 @@ appeared (§ milestone M1/corpus generator self-test).
 ```
 modelscan-eval/
   README.md
-  PLAN.md
+  docs/PLAN.md
   pyproject.toml            # deps: pytest; scanners as optional extras
   Makefile                  # make check / make eval / make report
   corpus/
